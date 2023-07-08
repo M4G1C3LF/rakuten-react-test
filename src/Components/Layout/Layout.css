@@ -1,0 +1,7 @@
+.layout-content {
+  display: flex;
+  flex-direction: row;
+  padding: 48px 1rem 0;
+  border: 1px solid green;
+  margin-bottom: 48px;
+}
