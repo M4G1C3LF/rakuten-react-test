@@ -3,6 +3,7 @@ import Layout from './Components/Layout/Layout';
 import { Carousel } from 'react-responsive-carousel';
 import MovieCarousel from './Components/Carousel/MovieCarousel/MovieCarousel';
 import CarouselSection from './Components/Carousel/CarouselSection/CarouselSection';
+import Modal from './Components/Layout/Modal/Modal';
 
 function App() {
 
@@ -69,6 +70,9 @@ function App() {
             />
           </div>
       </Layout>
+      <Modal>
+        <div>Modal Content</div>
+      </Modal>
     </div>
   );  
 }
