@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+
+  rakuten-react-test:
+    restart: always
+    image: rakuten-react-test
+    ports:
+      - "3000:3000"
+    container_name: rakuten-react-test
