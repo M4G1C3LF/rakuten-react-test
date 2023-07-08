@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import MovieThumbnail from '../MovieThumbnail/MovieThumbnail';
+import MovieThumbnail from '../../Thumbnail/MovieThumbnail/MovieThumbnail';
 import CarouselSlide from '../CarouselSlide/CarouselSlide';
 
 type MovieMinified = {

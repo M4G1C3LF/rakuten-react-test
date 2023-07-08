@@ -1,8 +1,6 @@
 import React from "react";
 import './Header.css';
-import RakutenLogo from "../../RakutenLogo/RakutenLogo";
-
-
+import RakutenLogo from "../../Logo/RakutenLogo/RakutenLogo";
 
 export default () => {
     return <header className="layout-header">
