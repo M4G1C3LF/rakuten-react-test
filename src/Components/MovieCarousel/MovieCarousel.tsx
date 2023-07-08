@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import './MovieCarousel.css';
+import MovieThumbnail from '../MovieThumbnail/MovieThumbnail';
+import CarouselSlide from '../CarouselSlide/CarouselSlide';
 
 type MovieMinified = {
     id: string;
@@ -13,32 +14,25 @@ type MovieCarouselProps = {
 }
 
 export default (props: MovieCarouselProps) => {
-    //Create custom slides with maximumItems per slide
-    const slides = [];
-    for (let i = 0; i < props.movies.length; i += props.itemsPerSlide) {
-        const slide = [];
-        for (let j = 0; j < props.itemsPerSlide; j++) {
-            const movie = props.movies[i + j];
-            if (movie) {
-                slide.push(
-                    <div className='movie-thumbnail'>
-                        <span>
-                            <img src={movie.image} />
-                        </span>
-                    </div>
-                );
+    const getCarouselSlides = (args: {items: any[], itemsPerSlide: number}) : ReactElement[][] => {
+        const slides = [];
+        for (let i = 0; i < args.items.length; i += args.itemsPerSlide) {
+            const slide = [];
+            for (let j = 0; j < args.itemsPerSlide; j++) {
+                const movie = args.items[i + j];
+                if (movie) slide.push(<MovieThumbnail image={movie.image} />);
             }
+            slides.push(slide);
         }
-        slides.push(slide);
+        return slides;
     }
-    
+
+    const slides = getCarouselSlides({ items: props.movies, itemsPerSlide: props.itemsPerSlide });
     return (
-        <Carousel className='custom-carousel' infiniteLoop>
+        <Carousel infiniteLoop>
             {slides.map((slide, index) => {
                 return (
-                    <div className='carousel-wrapper d-flex' key={index}>
-                        {slide}
-                    </div>
+                    <CarouselSlide key={index} elements={slide} />
                 );
             })}
         </Carousel>

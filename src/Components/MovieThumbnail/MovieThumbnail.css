@@ -1,0 +1,9 @@
+.movie-thumbnail {
+    min-width: 10rem;
+    max-width: 10rem;
+    white-space: normal;
+}
+
+.movie-thumbnail:hover {
+    translate: scale(1.1);
+}
