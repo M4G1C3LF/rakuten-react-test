@@ -59,6 +59,10 @@ body {
     margin: 0.33rem;
 }
 
+.d-flex {
+    display: flex;
+}
 .position-abolute {
     position: absolute;
 }
+
