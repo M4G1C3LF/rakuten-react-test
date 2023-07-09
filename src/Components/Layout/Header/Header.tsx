@@ -5,7 +5,7 @@ import RakutenLogo from "../../Logo/RakutenLogo/RakutenLogo";
 export default () => {
     return <header className="layout-header">
         <div className="w-100">
-            <RakutenLogo className="position-abolute" fillColor="#ffffff"/>
+            <RakutenLogo className="position-abolute" color="#ffffff"/>
             <div className="header-links">
                 {getHeaderLink({ title: "Inicio", url: "https://www.rakuten.tv/es/" })}
                 {getHeaderLink({ title: "Tienda", url: "https://www.rakuten.tv/es/gardens/store" })}

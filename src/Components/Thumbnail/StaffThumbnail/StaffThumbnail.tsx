@@ -2,11 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import '../Thumbnail.css';
 
-type MovieThumbnailProps = {
+type StaffThumbnailProps = {
+    name: string;
     image: string;
+    role?: string;
 }
 
-export default (props: MovieThumbnailProps) => {
+export default (props: StaffThumbnailProps) => {
     const [hover, setHover] = useState(false);
 
     return (
@@ -15,6 +17,7 @@ export default (props: MovieThumbnailProps) => {
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
         >
+            
             <span>
                 <img src={props.image} />
                 {hover && <div>Preview</div>}

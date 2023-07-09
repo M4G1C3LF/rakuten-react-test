@@ -8,6 +8,9 @@
     - Install react-responsive-carousel package.
     - Create Carousel components: CarouselSection, CarouselSlide and MovieCarousel.
     - Create Modal component.
+    - Create Movie Detail component
+    - Create Logo Component for Dolby and Imdb.
+    - Implement Scrollbar on Modal.
     
 # References
  - Create react typescript app without CRA: https://www.sharooq.com/react-18-the-root-index-ts-file-in-a-typescript-project

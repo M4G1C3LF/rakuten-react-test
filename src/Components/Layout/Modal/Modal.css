@@ -1,7 +1,7 @@
 /* The Modal (background) */
 .modal {
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 10; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -12,17 +12,17 @@
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
 .modal-content {
-  background-color: #eaeaea;
+  z-index: 11;
+  background-color: #555555;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
   width: 80%;
 }
 
 .modal-active {
   display: block;
+  background-color: #000000AA;
 }
 
 .modal-inactive {

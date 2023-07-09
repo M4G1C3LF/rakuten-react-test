@@ -1,11 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
 import Layout from './Components/Layout/Layout';
-import { Carousel } from 'react-responsive-carousel';
-import MovieCarousel from './Components/Carousel/MovieCarousel/MovieCarousel';
 import CarouselSection from './Components/Carousel/CarouselSection/CarouselSection';
 import Modal from './Components/Layout/Modal/Modal';
+import MovieDetail from './Components/Detail/MovieDetail/MovieDetail';
 
 function App() {
+  const [modalActive, setModalActive] = useState(true);
+
+  const closeModal = () => {
+    setModalActive(false);
+  }
 
   return (
     <div className="App">
@@ -70,8 +75,16 @@ function App() {
             />
           </div>
       </Layout>
-      <Modal>
-        <div>Modal Content</div>
+      <Modal 
+        isActive={modalActive}
+        closeModal={closeModal}
+      >
+        <MovieDetail 
+          scores={ {imdb: 5.2, tmdb: 6 }}
+          classification={12}
+          title='Las hijas del Reich'
+          description='Inglaterra 1939. Thomas Miller es un profesor de inglés que ha aceptado un puesto de última hora en la escuela Augusta-Victoria en la costa sur inglesa a la que los nazis alemanes de alto rango envían a sus hijas. Bajo la atenta mirada de la directora, la Señorita Rocholl, y su devota ayudante Ilse Keller, las chicas practican inglés y aprenden a representar el ideal de la mujer alemana. La aparición del cuerpo sin vida de un antiguo profesor de la escuela pondrá en jaque el prestigio de la institución y las vidas de todos los implicados.'
+        />
       </Modal>
     </div>
   );  
