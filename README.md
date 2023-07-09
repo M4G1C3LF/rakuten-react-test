@@ -12,5 +12,7 @@
     - Create Logo Component for Dolby and Imdb.
     - Implement Scrollbar on Modal.
     
+# Todo
+    - Disable app scrollbar when modal is open.
 # References
  - Create react typescript app without CRA: https://www.sharooq.com/react-18-the-root-index-ts-file-in-a-typescript-project

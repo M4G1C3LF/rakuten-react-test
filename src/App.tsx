@@ -13,7 +13,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={`App ${modalActive && "disable-overflow" }`}>
       <Layout>
           <div>
             <CarouselSection 
@@ -84,6 +84,23 @@ function App() {
           classification={12}
           title='Las hijas del Reich'
           description='Inglaterra 1939. Thomas Miller es un profesor de inglés que ha aceptado un puesto de última hora en la escuela Augusta-Victoria en la costa sur inglesa a la que los nazis alemanes de alto rango envían a sus hijas. Bajo la atenta mirada de la directora, la Señorita Rocholl, y su devota ayudante Ilse Keller, las chicas practican inglés y aprenden a representar el ideal de la mujer alemana. La aparición del cuerpo sin vida de un antiguo profesor de la escuela pondrá en jaque el prestigio de la institución y las vidas de todos los implicados.'
+          genres={[
+            {
+              id: 1,
+              image: 'https://images-2.rakuten.tv/storage/list-image/brandable-photo/cdca468c-0072-4f3d-9250-807407ac72aa.png',
+              name: 'Action'
+            },
+            {
+              id: 2,
+              image: 'https://images-2.rakuten.tv/storage/list-image/brandable_photo/37b14f48-2c22-4ee7-a1b6-84b2f5bb5f9b-adventure-1591342700.png',
+              name: 'Adventure'
+            },
+            {
+              id: 3,
+              image: 'https://images-1.rakuten.tv/storage/list-image/brandable_photo/afbcfed0-7e7c-422b-9073-a4062bf882d9-science-fiction-1591342717.png',
+              name: 'Animation'
+            },
+        ]}
         />
       </Modal>
     </div>

@@ -10,7 +10,7 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-  
+
 .text-right {
     text-align: right;
 }
@@ -46,7 +46,13 @@ code {
 .d-flex {
     display: flex;
 }
+
 .position-abolute {
     position: absolute;
 }
 
+.mx-auto {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

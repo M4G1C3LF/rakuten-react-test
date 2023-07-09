@@ -18,6 +18,8 @@
   margin: auto;
   padding: 20px;
   width: 80%;
+  overflow: auto; /* Enable scroll if needed */
+  margin-bottom: 15rem;
 }
 
 .modal-active {

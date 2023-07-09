@@ -4,8 +4,9 @@ import ImdbLogo from '../../Logo/ImdbLogo/ImdbLogo';
 import DolbyLogo from '../../Logo/DolbyLogo/DolbyLogo';
 import Container from '../../Grid/Container/Container';
 import Row from '../../Grid/Row/Row';
+import GenreThumbnail from '../../Thumbnail/GenreThumbnail/GenreThumbnail';
 
-type Genere = {
+type Genre = {
     id: number;
     name: string;
     image: string;
@@ -21,7 +22,7 @@ type MovieDetailProps = {
         imdb: number;
         tmdb: number;
     };
-    generes?: Genere[];
+    genres?: Genre[];
     languages?: string[];
     subtitles?: string[];
     classification: number;
@@ -62,10 +63,34 @@ export default (props: MovieDetailProps) => {
 
             </div>
             <div>
-                <h1>Generes</h1>
+                <h1>Genres</h1>
+                <div className='d-flex'>
+                    {props.genres?.map((genres) => {
+                        return (
+                            <GenreThumbnail 
+                                id={genres.id}
+                                image={genres.image}
+                                name={genres.name}
+                                key={genres.name}
+                            />
+                        )
+                    })}
+                </div>
             </div>
             <div>
                 <h1>Details</h1>
+                <div className='d-flex'>
+                    {props.genres?.map((genres) => {
+                        return (
+                            <GenreThumbnail 
+                                id={genres.id}
+                                image={genres.image}
+                                name={genres.name}
+                                key={genres.name}
+                            />
+                        )
+                    })}
+                </div>
             </div>
         </div>
     );

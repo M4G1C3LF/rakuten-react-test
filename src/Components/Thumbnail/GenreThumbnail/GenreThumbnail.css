@@ -1,0 +1,10 @@
+.genre-thumbnail {
+    min-width: 10rem;
+    max-width: 10rem;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+}
+
+.genre-thumbnail:hover {
+    translate: scale(1.1);
+}
