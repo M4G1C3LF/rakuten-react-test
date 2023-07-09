@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import '../Thumbnail.css';
+import './MovieThumbnail.css';
 
 type MovieThumbnailProps = {
     image: string;
@@ -11,7 +11,7 @@ export default (props: MovieThumbnailProps) => {
 
     return (
         <div 
-            className='standard-thumbnail'
+            className='movie-thumbnail'
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
         >

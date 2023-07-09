@@ -23,6 +23,57 @@
     }
   }
   
+  @media (min-width: 1600px) {
+    .container {
+      width: 1570px;
+    }
+  }
+
+  @media (min-width: 2000px) {
+    .container {
+      width: 1970px;
+    }
+  }
+
+  @media (min-width: 2400px) {
+    .container {
+      width: 2370px;
+    }
+  }
+
+  @media (min-width: 2800px) {
+    .container {
+      width: 2770px;
+    }
+  }
+
+  @media (min-width: 3200px) {
+    .container {
+      width: 3170px;
+    }
+  }
+
+  @media (min-width: 3600px) {
+    .container {
+      width: 3570px;
+    }
+  }
+
+  @media (min-width: 4000px) {
+    .container {
+      width: 3970px;
+    }
+  }
+
+  @media (min-width: 4400px) {
+    .container {
+      width: 4370px;
+    }
+  }
+
+  
+  
+  
   .container .col {
     background: lightblue;
   }

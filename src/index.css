@@ -43,6 +43,14 @@ code {
     margin: 0.33rem;
 }
 
+.m-2 {
+    margin: 0.66rem;
+}
+
+.m-3 {
+    margin: 1rem;
+}
+
 .d-flex {
     display: flex;
 }
@@ -55,4 +63,25 @@ code {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+}
+
+.my-auto {
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.border {
+    border: 1px solid rgb(98, 99, 99);
+    border-radius: 2px;
+    padding: 0px 8px;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.secondary-text-color {
+    color: #AEAEAE;
 }

@@ -13,7 +13,7 @@ function App() {
   }
 
   return (
-    <div className={`App ${modalActive && "disable-overflow" }`}>
+    <div className={`App`}>
       <Layout>
           <div>
             <CarouselSection 
@@ -33,7 +33,7 @@ function App() {
                 { id: '12', title: 'Movie 12', image: 'https://images-3.rakuten.tv/storage/global-movie/translation/artwork/8f24fb5d-0bc9-479f-86dd-de69da69c7e1.jpeg' },
                 
               ]}
-              itemsPerSlide={7}
+              itemsPerSlide={6}
             />
             <CarouselSection 
               title='My Carousel 2'
@@ -52,7 +52,7 @@ function App() {
                 { id: '12', title: 'Movie 12', image: 'https://images-3.rakuten.tv/storage/global-movie/translation/artwork/8f24fb5d-0bc9-479f-86dd-de69da69c7e1.jpeg' },
                 
               ]}
-              itemsPerSlide={7}
+              itemsPerSlide={6}
             />
             <CarouselSection 
               title='My Carousel 3'
@@ -71,7 +71,7 @@ function App() {
                 { id: '12', title: 'Movie 12', image: 'https://images-3.rakuten.tv/storage/global-movie/translation/artwork/8f24fb5d-0bc9-479f-86dd-de69da69c7e1.jpeg' },
                 
               ]}
-              itemsPerSlide={7}
+              itemsPerSlide={6}
             />
           </div>
       </Layout>
@@ -81,24 +81,30 @@ function App() {
       >
         <MovieDetail 
           scores={ {imdb: 5.2, tmdb: 6 }}
-          classification={12}
-          title='Las hijas del Reich'
-          description='Inglaterra 1939. Thomas Miller es un profesor de inglés que ha aceptado un puesto de última hora en la escuela Augusta-Victoria en la costa sur inglesa a la que los nazis alemanes de alto rango envían a sus hijas. Bajo la atenta mirada de la directora, la Señorita Rocholl, y su devota ayudante Ilse Keller, las chicas practican inglés y aprenden a representar el ideal de la mujer alemana. La aparición del cuerpo sin vida de un antiguo profesor de la escuela pondrá en jaque el prestigio de la institución y las vidas de todos los implicados.'
+          classification={18}
+          title='Matrix'
+          description='Neo es el nick en la red que un aparentemente tranquilo trabajador de una empresa de software utiliza en sus pirateos informáticos varios. Su doble vida se ve alterada cuando unas misteriosas frases aparecen en su ordenador: "Matrix te posee". Neo entabla contacto telefónico con el que cree que es otro hacker (Morfeo) y unos misteriosos agentes comienzan a seguirle. Toda la concepción de la vida que tenía se irá al traste cuando Morfeo le explica que lo que realmente está viviendo no es más que un largo sueño apoyado en realidades virtuales y que no vive en el siglo que cree.'
+          releaseYear={1999}
+          duration={136}
           genres={[
             {
               id: 1,
               image: 'https://images-2.rakuten.tv/storage/list-image/brandable-photo/cdca468c-0072-4f3d-9250-807407ac72aa.png',
-              name: 'Action'
+              name: 'Action',
+              link: '#'
+
             },
             {
               id: 2,
               image: 'https://images-2.rakuten.tv/storage/list-image/brandable_photo/37b14f48-2c22-4ee7-a1b6-84b2f5bb5f9b-adventure-1591342700.png',
-              name: 'Adventure'
+              name: 'Adventure',
+              link: '#'
             },
             {
               id: 3,
               image: 'https://images-1.rakuten.tv/storage/list-image/brandable_photo/afbcfed0-7e7c-422b-9073-a4062bf882d9-science-fiction-1591342717.png',
-              name: 'Animation'
+              name: 'Animation',
+              link: '#'
             },
         ]}
         />

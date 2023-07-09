@@ -5,12 +5,11 @@ import DolbyLogo from '../../Logo/DolbyLogo/DolbyLogo';
 import Container from '../../Grid/Container/Container';
 import Row from '../../Grid/Row/Row';
 import GenreThumbnail from '../../Thumbnail/GenreThumbnail/GenreThumbnail';
-
-type Genre = {
-    id: number;
-    name: string;
-    image: string;
-}
+import CarouselSection from '../../Carousel/CarouselSection/CarouselSection';
+import MovieCarousel from '../../Carousel/MovieCarousel/MovieCarousel';
+import { StaffMember } from '../../../Types/StaffMember';
+import { Genre } from '../../../Types/Genre';
+import StaffCarousel from '../../Carousel/StaffCarousel/StaffCarousel';
 
 
 type MovieDetailProps = {
@@ -22,6 +21,7 @@ type MovieDetailProps = {
         imdb: number;
         tmdb: number;
     };
+    staff?: StaffMember[];
     genres?: Genre[];
     languages?: string[];
     subtitles?: string[];
@@ -42,15 +42,23 @@ export default (props: MovieDetailProps) => {
                 <div>
                     <Container>
                         <Row>
-                            <div className="">
-                                <span>
-                                    <ImdbLogo color='#FEFEFE'/> 
-                                    <span>{props.scores?.imdb}</span>
-                                </span>
-                                <DolbyLogo />
-                                {props.releaseYear}
-                                {props.duration}
-                                <span>{props.classification}</span>
+                            <div className="d-flex">
+                                <div className="my-auto m-1">
+                                    <ImdbLogo height="17px" color='#FEFEFE'/> 
+                                    <span className='m-1'>{props.scores?.imdb}</span>
+                                </div>
+                                <div className="my-auto m-1">
+                                    {props.releaseYear}
+                                </div>
+                                <div className="my-auto m-1">
+                                    {props.duration} min.
+                                </div>
+                                <div className="my-auto m-1 border">
+                                    <DolbyLogo height="17px"/> 5.1
+                                </div>
+                                <div className="my-auto m-1 border">
+                                    {props.classification}
+                                </div>
                             </div>
                         </Row>
                     </Container>
@@ -60,7 +68,20 @@ export default (props: MovieDetailProps) => {
             </div>
             <div>
                 <h1>Staff</h1>
-
+                <StaffCarousel staff={[
+                    {id: 1, name: "Lily Wachowski", role: "Director", link: "#", image: "https://images-0.rakuten.tv/storage/person/photo/5453b9c2-3861-40af-86b7-0b5afb54f2db.jpg"},
+                    {id: 2, name: "Lana Wachowski", role: "Director", link: "#", image: "https://images-1.rakuten.tv/storage/person/photo/1c4ecd89-ab53-4fbe-ad80-604bf5d7afe3.jpg"},
+                    {id: 3, name: "Keanu Reeves", role: "Actor", link: "#", image: "https://images-3.rakuten.tv/storage/person/photo/fc3e460f-c71f-4007-91c9-44b7d128202f.jpg"},
+                    {id: 4, name: "Laurence Fishburne", role: "Actor", link: "#", image: "https://images-2.rakuten.tv/storage/person/photo/fe9080d7-e65a-4406-a7dc-f1026d352fb4.jpg"},
+                    {id: 5, name: "Carrie-Anne Moss", role: "Actor", link: "#", image: "https://images-0.rakuten.tv/storage/person/photo/56e7ac7f-cf29-49c3-a7f7-4ae4597a7c4a.jpg"},
+                    {id: 6, name: "Hugo Weaving", role: "Actor", link: "#", image: "https://images-1.rakuten.tv/storage/person/photo/1f92c8c0-8135-4bd4-97de-c0718bf7cb9b.jpg"},
+                    {id: 7, name: "Gloria Foster", role: "Actor", link: "#", image: "https://images-1.rakuten.tv/storage/person/photo/6229f337-8021-4bb7-bf09-f7bae54eaaed.jpg"},
+                    {id: 8, name: "Joe Pantoliano", role: "Actor", link: "#", image: "https://images-0.rakuten.tv/storage/person/photo/57b69cc9-24fa-46dc-89b1-efa798e8f7d6.jpg"},
+                    {id: 9, name: "Marcus Chong", role: "Actor", link: "#", image: "https://images-0.rakuten.tv/storage/person/photo/741863a9-086b-44c9-85b3-ad354d656280.jpg"},
+                ]}
+                itemsPerSlide={6} 
+                
+                />
             </div>
             <div>
                 <h1>Genres</h1>

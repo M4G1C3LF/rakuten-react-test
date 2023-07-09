@@ -4,7 +4,3 @@
     margin-left: 0.1rem;
     margin-right: 0.1rem;
 }
-
-.genre-thumbnail:hover {
-    translate: scale(1.1);
-}

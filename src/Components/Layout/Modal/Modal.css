@@ -14,11 +14,10 @@
 
 .modal-content {
   z-index: 11;
-  background-color: #555555;
+  background-color: #000000;
   margin: auto;
   padding: 20px;
   width: 80%;
-  overflow: auto; /* Enable scroll if needed */
   margin-bottom: 15rem;
 }
 

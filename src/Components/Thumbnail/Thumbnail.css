@@ -1,10 +1,6 @@
 .standard-thumbnail {
-    min-width: 10rem;
-    max-width: 10rem;
+    min-width: 13.4rem;
+    max-width: 13.4rem;
     margin-left: 0.1rem;
     margin-right: 0.1rem;
-}
-
-.standard-thumbnail:hover {
-    translate: scale(1.1);
 }
