@@ -71,13 +71,6 @@
     }
   }
 
-  
-  
-  
-  .container .col {
-    background: lightblue;
-  }
-  
   .container .col p {
     padding: .25rem .75rem;
   }
@@ -108,4 +101,16 @@
     .container .col {
       width: 25%;
     }
+  }
+
+  .row2colum .col {
+    width: 50%;
+  }
+  
+  .row3colum .col {
+    width: 33.333%;
+  }
+
+  .row4colum .col {
+    width: 25%;
   }

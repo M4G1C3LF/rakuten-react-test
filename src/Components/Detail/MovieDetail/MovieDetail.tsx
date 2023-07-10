@@ -10,6 +10,7 @@ import MovieCarousel from '../../Carousel/MovieCarousel/MovieCarousel';
 import { StaffMember } from '../../../Types/StaffMember';
 import { Genre } from '../../../Types/Genre';
 import StaffCarousel from '../../Carousel/StaffCarousel/StaffCarousel';
+import Column from '../../Grid/Column/Column';
 
 
 type MovieDetailProps = {
@@ -100,18 +101,69 @@ export default (props: MovieDetailProps) => {
             </div>
             <div>
                 <h1>Details</h1>
-                <div className='d-flex'>
-                    {props.genres?.map((genres) => {
-                        return (
-                            <GenreThumbnail 
-                                id={genres.id}
-                                image={genres.image}
-                                name={genres.name}
-                                key={genres.name}
-                            />
-                        )
-                    })}
-                </div>
+                <Container className="movie-detail-details row3colum">
+                    <Row>
+                        <div>
+                        <Column>
+                            <div>
+                                <h3>Idioma de audio</h3>
+                                <span>
+                                    {props.languages?.map((language) => {
+                                        return (
+                                            <span>{language}</span>
+                                        )
+                                    }).join(', ')}
+                                </span>
+                                <h3>Subtítulos</h3>
+                                <span>
+                                    {props.subtitles?.map((subtitle) => {
+                                        return (
+                                            <span>{subtitle}</span>
+                                        )
+                                    }).join(', ')}
+                                </span>
+                            </div>
+                        </Column>
+                        <Column>
+                            <div>
+                                <h3>Audiencia </h3>
+                                <span>
+                                    No recomendada para menores de {props.classification} años
+                                </span>
+                                <h3>Calidad de vídeo </h3>
+                                <span>
+                                {props.videoQualities?.map((videoQuality) => {
+                                    return (
+                                        <span>{videoQuality}</span>
+                                    )
+                                }).join(', ')}
+                                </span>
+                                <h3>Calidad de audio </h3>
+                                <span>
+                                    {props.audioQualities?.map((audioQuality) => {
+                                        return (
+                                            <span>{audioQuality}</span>
+                                        )
+                                    }).join(', ')}
+                                </span>
+                            </div>
+                        </Column>
+                        <Column>
+                            <div>
+                                <h3>Puntuación </h3>
+                                <div className="my-auto m-1">
+                                    <ImdbLogo height="40px" color='#e3dd24'/> 
+                                    <span className='m-1'>{props.scores?.imdb}</span>
+                                </div>
+                                <div className="my-auto m-1">
+                                    <span>TMDB</span> 
+                                    <span className='m-1'>{props.scores?.tmdb}</span>
+                                </div>
+                            </div>
+                        </Column>
+                        </div>
+                    </Row>
+                </Container>
             </div>
         </div>
     );
