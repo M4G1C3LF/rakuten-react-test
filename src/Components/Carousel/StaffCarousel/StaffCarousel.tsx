@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import CarouselSlide from '../CarouselSlide/CarouselSlide';
 import StaffThumbnail from '../../Thumbnail/StaffThumbnail/StaffThumbnail';
-import { StaffMember } from '../../../Types/StaffMember';
+import { StaffMember } from '../../../api/aggregates/movie/shared/types/StaffMember';
 
 type StaffCarouselProps = {
     staff: StaffMember[];

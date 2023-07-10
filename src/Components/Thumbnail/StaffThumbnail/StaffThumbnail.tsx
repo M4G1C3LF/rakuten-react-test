@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './StaffThumbnail.css';
-import { StaffMember } from '../../../Types/StaffMember';
+import { StaffMember } from '../../../api/aggregates/movie/shared/types/StaffMember';
 
 type StaffThumbnailProps = {
     staffMember: StaffMember

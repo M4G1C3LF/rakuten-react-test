@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import MovieThumbnail from '../../Thumbnail/MovieThumbnail/MovieThumbnail';
 import CarouselSlide from '../CarouselSlide/CarouselSlide';
-import { MovieMinified } from '../../../Types/MovieMinified';
+import { MovieMinified } from '../../../api/aggregates/movie/shared/types/MovieMinified';
 
 type MovieCarouselProps = {
     movies: MovieMinified[];

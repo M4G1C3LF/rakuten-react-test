@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './GenreThumbnail.css';
 
 type GenreThumbnail = {
-    id: number;
+    id: string;
     name: string;
     image: string;
 }

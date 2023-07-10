@@ -4,7 +4,7 @@ import Layout from './Components/Layout/Layout';
 import CarouselSection from './Components/Carousel/CarouselSection/CarouselSection';
 import Modal from './Components/Layout/Modal/Modal';
 import MovieDetail from './Components/Detail/MovieDetail/MovieDetail';
-import { Movie } from './Types/Movie';
+import { Movie } from './api/aggregates/movie/shared/types/Movie';
 
 function App() {
   const [modalActive, setModalActive] = useState(true);
@@ -23,20 +23,20 @@ function App() {
     duration: 136,
     genres: [
       {
-        id: 1,
+        id: "1",
         image: 'https://images-2.rakuten.tv/storage/list-image/brandable-photo/cdca468c-0072-4f3d-9250-807407ac72aa.png',
         name: 'Action',
         link: '#'
 
       },
       {
-        id: 2,
+        id: "2",
         image: 'https://images-2.rakuten.tv/storage/list-image/brandable_photo/37b14f48-2c22-4ee7-a1b6-84b2f5bb5f9b-adventure-1591342700.png',
         name: 'Adventure',
         link: '#'
       },
       {
-        id: 3,
+        id: "3",
         image: 'https://images-1.rakuten.tv/storage/list-image/brandable_photo/afbcfed0-7e7c-422b-9073-a4062bf882d9-science-fiction-1591342717.png',
         name: 'Animation',
         link: '#'

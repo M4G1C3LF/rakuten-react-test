@@ -12,6 +12,14 @@
     - Create Logo Component for Dolby and Imdb.
     - Implement Scrollbar on Modal.
     - Apply some styles on MovieDetail component.
+    - Download redux and redux-saga
+    - Configure redux store
+    - Create Controller for the api requests.
+    - Create an Infrastructure HTTPService for retrieve data from the api.
+    - Create an Interface Apadter Mapper to transform the data retrieved on the service into our defined data types.
+    
+    
+
     
 # Todo
     - Disable app scrollbar when modal is open.

@@ -2,6 +2,7 @@ import { Genre } from "./Genre";
 import { StaffMember } from "./StaffMember";
 
 export type Movie = {
+    id?: string;
     title?: string;
     screenshotUrl?: string;
     description?: string;

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import MovieCarousel from '../MovieCarousel/MovieCarousel';
 
 type CarouselSectionProps = {
