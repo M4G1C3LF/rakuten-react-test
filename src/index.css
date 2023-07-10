@@ -51,6 +51,37 @@ code {
     margin: 1rem;
 }
 
+.mx-1 {
+    margin-left: 0.33rem;
+    margin-right: 0.33rem;
+}
+
+.mx-2 {
+    margin-left: 0.66rem;
+    margin-right: 0.66rem;
+}
+
+.mx-3 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.mt-0 {
+    margin-top: 0rem;
+}
+
+.mt-1 {
+    margin-top: 0.33rem;
+}
+
+.mt-2 {
+    margin-top: 0.66rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
 .d-flex {
     display: flex;
 }
@@ -84,4 +115,14 @@ code {
 
 .secondary-text-color {
     color: #AEAEAE;
+}
+
+.font-size-medium {
+    font-size: 1.3rem;
+}
+
+.tmdb-logo {
+    width: 20%;
+    height: 20%;
+    margin-top: 0.5rem;
 }
