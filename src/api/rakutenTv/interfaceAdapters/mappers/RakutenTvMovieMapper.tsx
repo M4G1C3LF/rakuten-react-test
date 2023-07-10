@@ -17,13 +17,17 @@ export class RakutenTvMovieMapper implements IMovieRepository {
 	}
 	async getMovieList(args: GetMovieListInputDTO): Promise<GetMovieListOutputDTO> {
 		const response = await this.movieService.getMovieList(args);
-		return response.data.contents.data.map((movie) => {
-			return {
-				id: movie.id,
-				image: movie.images.standard_artwork,
-				title: movie.title,
-			}
-		});
+
+		return {
+			title: response.data.name,
+			movies: response.data.contents.data.map((movie) => {
+				return {
+					id: movie.id,
+					image: movie.images.standard_artwork,
+					title: movie.title,
+				}
+			})
+		}
 	}
 	async getMovieById(args: GetMovieByIdInputDTO): Promise<GetMovieByIdOutputDTO> {
 		const response = await this.movieService.getMovieById(args);

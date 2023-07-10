@@ -11,7 +11,7 @@ const INIT_STATE = {
   movieDetail: null,
   isLoadingMovieDetail: false,
   movieDetailError: null,
-  movieList: [],
+  movieLists: [[]],
   isLoadingMovieList: false,
   movieListError: null,
 };
@@ -47,16 +47,29 @@ const movie = (state = INIT_STATE, action : any) => {
       };
       
     case GET_MOVIE_LIST_SUCCESS:
+      console.log('GET_MOVIE_LIST_SUCCESS', action.payload.movieList)
+      let newMovieLists;
+      const movieListIndex = state.movieLists.findIndex((movieList : any) => movieList === action.payload.movieList);
+      if (movieListIndex !== -1) {
+        newMovieLists = [...state.movieLists];
+        newMovieLists[movieListIndex] = action.payload.movieList;
+      } else {
+        if (state.movieLists.length === 1 && state.movieLists[0].length === 0) {
+          newMovieLists = [action.payload.movieList];
+        } else {
+          newMovieLists = [...state.movieLists, action.payload.movieList];
+        }
+      }  
+      
       return {
         ...state,
-        movieList: action.payload.movieList,
+        movieLists: newMovieLists,
         isLoadingMovieList: false,
       };
 
     case GET_MOVIE_LIST_FAIL:
       return {
         ...state,
-        movieList: INIT_STATE.movieList,
         movieListError: action.payload,
         isLoadingMovieList: false,
       };

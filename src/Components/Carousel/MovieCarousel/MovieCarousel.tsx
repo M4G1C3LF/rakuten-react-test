@@ -11,6 +11,8 @@ type MovieCarouselProps = {
 
 export default (props: MovieCarouselProps) => {
     const getCarouselSlides = (args: {items: any[], itemsPerSlide: number}) : ReactElement[][] => {
+        if (!args.items)
+            return [];
         const slides = [];
         for (let i = 0; i < args.items.length; i += args.itemsPerSlide) {
             const slide = [];

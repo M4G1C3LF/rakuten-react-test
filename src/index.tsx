@@ -1,9 +1,18 @@
 import React from 'react'
+import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import App from './App'
+import App from './App';
+import './index.css';
+import store from './store';
+
 
 const container = document.getElementById('root')!
 const root = createRoot(container)
-root.render(<App />)
+root.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </React.StrictMode>
+)
