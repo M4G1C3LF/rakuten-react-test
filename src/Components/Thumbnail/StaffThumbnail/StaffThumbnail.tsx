@@ -20,7 +20,7 @@ export default (props: StaffThumbnailProps) => {
         >
             
             <span>
-                <img src={props.staffMember.image} />
+                <img src={props.staffMember.image} alt="Image not found"/>
                 <div>{props.staffMember.name}</div>
                 {props.staffMember.role !== ACTOR_ROLE && <div className="secondary-text-color">{props.staffMember.role}</div>}
             </span>

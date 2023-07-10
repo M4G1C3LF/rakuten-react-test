@@ -7,6 +7,7 @@ import { MovieMinified } from '../../../api/aggregates/movie/shared/types/MovieM
 type MovieCarouselProps = {
     movies: MovieMinified[];
     itemsPerSlide: number;
+    onClickItem?: Function;
 }
 
 export default (props: MovieCarouselProps) => {
@@ -18,7 +19,7 @@ export default (props: MovieCarouselProps) => {
             const slide = [];
             for (let j = 0; j < args.itemsPerSlide; j++) {
                 const movie = args.items[i + j];
-                if (movie) slide.push(<MovieThumbnail image={movie.image} />);
+                if (movie) slide.push(<MovieThumbnail key={movie.id} movie={movie} onClick={props.onClickItem}/>);
             }
             slides.push(slide);
         }

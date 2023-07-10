@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import './MovieThumbnail.css';
+import { MovieMinified } from '../../../api/aggregates/movie/shared/types/MovieMinified';
 
 type MovieThumbnailProps = {
-    image: string;
+    movie: MovieMinified;
+    onClick?: Function;
 }
 
 export default (props: MovieThumbnailProps) => {
@@ -14,10 +16,10 @@ export default (props: MovieThumbnailProps) => {
             className='movie-thumbnail'
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
+            onClick={() => props.onClick && props.onClick(props.movie.id)}
         >
             <span>
-                <img src={props.image} />
-                {hover && <div>Preview</div>}
+                <img src={props.movie.image} />
             </span>
         </div>
     );

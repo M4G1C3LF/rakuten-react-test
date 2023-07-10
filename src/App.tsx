@@ -11,9 +11,12 @@ import { GetMovieByIdInputDTO } from './api/aggregates/movie/shared/dto/GetMovie
 import { GetMovieListInputDTO } from './api/aggregates/movie/shared/dto/GetMovieListInputDTO';
 
 type AppProps = {
-  getMovieList?: Function | undefined;
-  movieLists?: Movie[][] | undefined;
+  getMovieList?: Function;
+  getMovieById?: Function;
+  movieLists?: Movie[][];
+  movieDetail?: Movie;
   isLoadingMovieList?: boolean;
+  isLoadingMovieDetail?: boolean;
 };
 
 const DEFAULT_LISTS: string[] = [ 
@@ -27,10 +30,15 @@ const DEFAULT_LISTS: string[] = [
 ]
 
 function App(props: AppProps) {
-  const [modalActive, setModalActive] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
 
   const closeModal = () => {
     setModalActive(false);
+  }
+
+  const openModal = (id : string) => {
+    props.getMovieById && props.getMovieById({ data: { id }});
+    setModalActive(true);
   }
 
   useEffect(() => {
@@ -85,13 +93,14 @@ function App(props: AppProps) {
     <div className={`App`}>
       <Layout>
           <div>
-            {props.movieLists && props.movieLists.map((movieList: any) => {
+            {props.movieLists && props.movieLists.map((movieList: any, index: number) => {
               if (!movieList) return null;
               return <CarouselSection 
                 title={movieList && movieList.title}
                 items={movieList && movieList.movies}
                 itemsPerSlide={6}
-                key={movieList && movieList.movie && movieList.movie.map((movie: any) => movie.title).join('-')}
+                key={index}
+                onClickItem={openModal}
               />
             }
             )}
@@ -101,7 +110,7 @@ function App(props: AppProps) {
         isActive={modalActive}
         closeModal={closeModal}
       >
-        <MovieDetail movie={movie} />
+        <MovieDetail isLoading={props.isLoadingMovieDetail} movie={props.movieDetail} />
       </Modal>
     </div>
   );  
@@ -109,15 +118,17 @@ function App(props: AppProps) {
 
 const mapStateToProps = (state: any) => {
   return {
+      movieDetail: state.Movie.movieDetail,
+      isLoadingMovieDetail: state.Movie.isLoadingMovieDetail,
       movieLists: state.Movie.movieLists,
       isLoadingMovieList: state.Movie.isLoadingMovieList,
-      
   };
 }
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
       getMovieList: (args: GetMovieListInputDTO) => dispatch(getMovieList(args)),
+      getMovieById: (args: GetMovieByIdInputDTO) => dispatch(getMovieById(args)),
   };
 }
 

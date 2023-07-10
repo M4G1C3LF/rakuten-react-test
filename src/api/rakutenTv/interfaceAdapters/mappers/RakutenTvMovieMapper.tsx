@@ -48,7 +48,6 @@ export class RakutenTvMovieMapper implements IMovieRepository {
 					subtitles.push(language.name);
 				});
 			})
-			subtitles.push("Sin subtítulos");
 			return subtitles
 		}
 		const findScoreByPlatform = (response : GetRakutenTvMovieByIdOutputDTO, platform : string) : number => {

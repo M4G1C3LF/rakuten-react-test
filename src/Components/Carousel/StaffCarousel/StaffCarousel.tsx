@@ -16,7 +16,7 @@ export default (props: StaffCarouselProps) => {
             const slide = [];
             for (let j = 0; j < args.itemsPerSlide; j++) {
                 const staffMember : StaffMember = args.items[i + j];
-                if (staffMember) slide.push(<StaffThumbnail staffMember={staffMember} />);
+                if (staffMember) slide.push(<StaffThumbnail key={staffMember.id} staffMember={staffMember} />);
             }
             slides.push(slide);
         }

@@ -22,6 +22,7 @@ const movie = (state = INIT_STATE, action : any) => {
       return {
         ...state,
         isLoadingMovieDetail: true,
+        movieDetail: INIT_STATE.movieDetail,
         movieDetailError: null,
       };
     case GET_MOVIE_BY_ID_SUCCESS:
@@ -47,7 +48,6 @@ const movie = (state = INIT_STATE, action : any) => {
       };
       
     case GET_MOVIE_LIST_SUCCESS:
-      console.log('GET_MOVIE_LIST_SUCCESS', action.payload.movieList)
       let newMovieLists;
       const movieListIndex = state.movieLists.findIndex((movieList : any) => movieList === action.payload.movieList);
       if (movieListIndex !== -1) {
