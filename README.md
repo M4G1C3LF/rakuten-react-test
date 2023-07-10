@@ -8,9 +8,10 @@
     - Install react-responsive-carousel package.
     - Create Carousel components: CarouselSection, CarouselSlide and MovieCarousel.
     - Create Modal component.
-    - Create Movie Detail component
+    - Create MovieDetail component
     - Create Logo Component for Dolby and Imdb.
     - Implement Scrollbar on Modal.
+    - Apply some styles on MovieDetail component.
     
 # Todo
     - Disable app scrollbar when modal is open.
