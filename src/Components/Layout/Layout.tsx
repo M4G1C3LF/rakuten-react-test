@@ -7,11 +7,12 @@ import './Layout.css';
 
 type LayoutProps = {
     children: ReactElement;
+    className?: string;
 }
 
 export default (props: LayoutProps) => {
     return (
-        <Container>
+        <Container className={`${props.className}`}>
             <Row>
                 <div>
                     <Header />

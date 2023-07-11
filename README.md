@@ -24,8 +24,15 @@
 
     
 # Todo
+    - Apply some custom styles on carousel.
     - Disable app scrollbar when modal is open.
     - Correct style on images not found.
     - Correct movieDetail updating (it has some blinking with the contents of the previous state)
+    
+    - Create videoPlayer component.
+    - Create service method to get the video stream.
+    - Create mapper method to transform the data retrieved from server.
+    - Create controller method to retrieve the data stream.
+
 # References
  - Create react typescript app without CRA: https://www.sharooq.com/react-18-the-root-index-ts-file-in-a-typescript-project

@@ -9,6 +9,7 @@ import { Movie } from './api/aggregates/movie/shared/types/Movie';
 import { getMovieById, getMovieList } from './store/movie/actions';
 import { GetMovieByIdInputDTO } from './api/aggregates/movie/shared/dto/GetMovieByIdInputDTO';
 import { GetMovieListInputDTO } from './api/aggregates/movie/shared/dto/GetMovieListInputDTO';
+import VideoPlayer from './Components/VideoPlayer/VideoPlayer';
 
 type AppProps = {
   getMovieList?: Function;
@@ -91,7 +92,8 @@ function App(props: AppProps) {
 
   return (
     <div className={`App`}>
-      <Layout>
+      {/* <VideoPlayer videoUrl='https://prod-magazine-pmd-fastly.cdn.rakuten.tv/8/a/b/8abef660a68f87488d9fe42e7c9ad835-mc-0-141-0-0_SD_TRAILER/8abef660a68f87488d9fe42e7c9ad835-mc-0-141-0-0_SD_TRAILER.mp4?nvb=1689068067&nva=1689068207&token=0c27c6da6912c94702e57' /> */}
+      <Layout >
           <div>
             {props.movieLists && props.movieLists.map((movieList: any, index: number) => {
               if (!movieList) return null;

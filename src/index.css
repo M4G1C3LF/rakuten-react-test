@@ -86,6 +86,10 @@ code {
     display: flex;
 }
 
+.d-none {
+    display: none;
+}
+
 .position-abolute {
     position: absolute;
 }
