@@ -13,12 +13,12 @@ export default (props: GenreThumbnail) => {
 
     return (
         <div 
-            
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
+            onClick={() => window.open(`${`https://www.rakuten.tv/es/genres/${props.id}/movies`}`, "_blank")}
         >
-                <img className='genre-thumbnail' src={props.image} />
-                <div className='mx-auto'>{props.name}</div>
+            <img className='genre-thumbnail' src={props.image} />
+            <div className='mx-auto'>{props.name}</div>
         </div>
     );
        

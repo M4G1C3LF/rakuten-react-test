@@ -92,7 +92,7 @@ export class RakutenTvMovieMapper implements IMovieRepository {
 					name: director.name,
 					role: "Director",
 					image: director.photo,
-					link: `https://www.rakuten.tv/es/search/${director.id}`,
+					link: `https://www.rakuten.tv/es/people/${director.id}`,
 				});
 			});
 			response.data.actors.forEach(actor => {
@@ -100,7 +100,7 @@ export class RakutenTvMovieMapper implements IMovieRepository {
 					name: actor.name,
 					role: "Actor",
 					image: actor.photo,
-					link: `https://www.rakuten.tv/es/search/${actor.id}`,
+					link: `https://www.rakuten.tv/es/people/${actor.id}`,
 				});
 			});
 			return staff;

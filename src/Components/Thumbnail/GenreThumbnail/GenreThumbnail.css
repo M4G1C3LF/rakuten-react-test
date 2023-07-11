@@ -3,4 +3,11 @@
     max-width: 10rem;
     margin-left: 0.1rem;
     margin-right: 0.1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.genre-thumbnail:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out;
 }

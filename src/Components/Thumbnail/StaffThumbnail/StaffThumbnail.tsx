@@ -17,8 +17,8 @@ export default (props: StaffThumbnailProps) => {
             className='staff-thumbnail'
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
+            onClick={() => window.open(`${props.staffMember.link}`, "_blank")}
         >
-            
             <span>
                 <img src={props.staffMember.image} alt="Image not found"/>
                 <div>{props.staffMember.name}</div>
