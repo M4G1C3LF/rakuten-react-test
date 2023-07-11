@@ -92,7 +92,7 @@ const movie = (state = INIT_STATE, action : any) => {
           
       return {
         ...state,
-        movieStreamUrl: action.payload.stream,
+        movieStreamUrl: action.payload.stream.url,
         isLoadingMovieStream: false,
       };
 

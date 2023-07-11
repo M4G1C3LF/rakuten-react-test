@@ -3,6 +3,7 @@ import './Modal.css';
 
 type ModalProps = {
     children: ReactElement;
+    className?: string;
     isActive?: boolean;
     closeModal: Function
 }
@@ -18,7 +19,7 @@ export default (props: ModalProps) => {
   return (
     <div 
       id="modalWrapper"
-      className={`${props.isActive ? "modal-active" : "modal-inactive"} modal`}
+      className={`${props.isActive ? "modal-active" : "modal-inactive"} modal ${props.className}`}
       onClick={ (e) => handleModalClick(e)}
     >
       <div id="modalContent" className="modal-content">

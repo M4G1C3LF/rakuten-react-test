@@ -13,8 +13,6 @@ export default (props: RakutenLogoProps) => {
             className={props.className || ""}
             viewBox="0 0 187 42"
             height={`${props.height || DEFAULT_HEIGHT }`}
-            preserveAspectRatio="xMidYMid meet"
-            data-testid="logo"
         >
             <g 
                 fill={`${props.color || DEFAULT_COLOR }`} 

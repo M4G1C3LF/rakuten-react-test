@@ -113,7 +113,6 @@ code {
     display: flex;
     -moz-box-align: center;
     align-items: center;
-    height: 20px;
     flex-shrink: 0;
 }
 

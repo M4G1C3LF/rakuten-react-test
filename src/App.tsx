@@ -6,19 +6,24 @@ import CarouselSection from './Components/Carousel/CarouselSection/CarouselSecti
 import Modal from './Components/Layout/Modal/Modal';
 import MovieDetail from './Components/Detail/MovieDetail/MovieDetail';
 import { Movie } from './api/aggregates/movie/shared/types/Movie';
-import { getMovieById, getMovieList } from './store/movie/actions';
+import { getMovieById, getMovieList, getMovieStream } from './store/movie/actions';
+import { openVideoPlayer, closeVideoPlayer } from './store/ui/actions';
 import { GetMovieByIdInputDTO } from './api/aggregates/movie/shared/dto/GetMovieByIdInputDTO';
 import { GetMovieListInputDTO } from './api/aggregates/movie/shared/dto/GetMovieListInputDTO';
 import VideoPlayer from './Components/VideoPlayer/VideoPlayer';
+import { GetMovieStreamInputDTO } from './api/aggregates/movie/shared/dto/GetMovieStreamInputDTO';
 
 type AppProps = {
   getMovieList?: Function;
   getMovieById?: Function;
+  getMovieStream?: Function;
+  openVideoPlayer?: Function;
   movieLists?: Movie[][];
   movieDetail?: Movie;
   isLoadingMovieList?: boolean;
   isLoadingMovieDetail?: boolean;
   isVideoPlayerOpen?: boolean;
+  movieStreamUrl?: string;
 };
 
 const DEFAULT_LISTS: string[] = [ 
@@ -42,6 +47,11 @@ function App(props: AppProps) {
     props.getMovieById && props.getMovieById({ data: { id }});
     setModalActive(true);
   }
+  
+  const showTrailer = () => {
+    props.getMovieStream && props.getMovieStream({ data: { id: props.movieDetail?.id as string }});
+    props.openVideoPlayer && props.openVideoPlayer();
+  }
 
   useEffect(() => {
     if (props.isLoadingMovieList) return;
@@ -59,7 +69,7 @@ function App(props: AppProps) {
   return (
     <div className={`App`}>
       
-      {props.isVideoPlayerOpen && <VideoPlayer videoUrl='https://prod-magazine-pmd-fastly.cdn.rakuten.tv/8/a/b/8abef660a68f87488d9fe42e7c9ad835-mc-0-141-0-0_SD_TRAILER/8abef660a68f87488d9fe42e7c9ad835-mc-0-141-0-0_SD_TRAILER.mp4?nvb=1689068067&nva=1689068207&token=0c27c6da6912c94702e57' /> }
+      {props.isVideoPlayerOpen && props.movieStreamUrl &&<VideoPlayer videoUrl={`${props.movieStreamUrl}`} /> }
       <Layout className={`${props.isVideoPlayerOpen && 'd-none'}`}>
           <div>
             {props.movieLists && props.movieLists.map((movieList: any, index: number) => {
@@ -76,10 +86,15 @@ function App(props: AppProps) {
           </div>
       </Layout>
       <Modal 
+        className={`${props.isVideoPlayerOpen && 'd-none'}`}
         isActive={modalActive}
         closeModal={closeModal}
       >
-        <MovieDetail isLoading={props.isLoadingMovieDetail} movie={props.movieDetail} />
+        <MovieDetail 
+          isLoading={props.isLoadingMovieDetail} 
+          movie={props.movieDetail}
+          getTrailer={() => showTrailer()}
+        />
       </Modal>
     </div>
   );  
@@ -92,6 +107,7 @@ const mapStateToProps = (state: any) => {
       isLoadingMovieDetail: state.Movie.isLoadingMovieDetail,
       movieLists: state.Movie.movieLists,
       isLoadingMovieList: state.Movie.isLoadingMovieList,
+      movieStreamUrl: state.Movie.movieStreamUrl,
   };
 }
 
@@ -99,6 +115,8 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
       getMovieList: (args: GetMovieListInputDTO) => dispatch(getMovieList(args)),
       getMovieById: (args: GetMovieByIdInputDTO) => dispatch(getMovieById(args)),
+      getMovieStream: (args: GetMovieStreamInputDTO) => dispatch(getMovieStream(args)),
+      openVideoPlayer: () => dispatch(openVideoPlayer()),
   };
 }
 

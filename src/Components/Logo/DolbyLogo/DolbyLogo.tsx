@@ -1,19 +1,16 @@
 import React from 'react';
 
-type ImdbLogoProps = {
+type DolbyLogoProps = {
     height?: string;
     color?: string;
     className?: string;
 }
 const DEFAULT_HEIGHT = "30px";
 const DEFAULT_COLOR = "#FEFEFE";
-export default (props: ImdbLogoProps) => {
+export default (props: DolbyLogoProps) => {
     return (
         <svg 
             xmlns="http://www.w3.org/2000/svg"
-            id="DOLBY"
-            name="DOLBY"
-            data-testid="DOLBY"
             viewBox="0 0 24 24"
             height={props.height || DEFAULT_HEIGHT}
             fill={props.color || DEFAULT_COLOR}
