@@ -3,6 +3,8 @@ import { GetMovieByIdInputDTO } from "../../../aggregates/movie/shared/dto/GetMo
 import { GetMovieByIdOutputDTO } from "../../../aggregates/movie/shared/dto/GetMovieByIdOutputDTO";
 import { GetMovieListInputDTO } from "../../../aggregates/movie/shared/dto/GetMovieListInputDTO";
 import { GetMovieListOutputDTO } from "../../../aggregates/movie/shared/dto/GetMovieListOutputDTO";
+import { GetMovieStreamInputDTO } from "../../../aggregates/movie/shared/dto/GetMovieStreamInputDTO";
+import { GetMovieStreamOutputDTO } from "../../../aggregates/movie/shared/dto/GetMovieStreamOutputDTO";
 import { Genre } from "../../../aggregates/movie/shared/types/Genre";
 import { StaffMember } from "../../../aggregates/movie/shared/types/StaffMember";
 import { HttpRakutenTvService } from "../../infrastructure/HttpRakutenTvService";
@@ -14,6 +16,17 @@ export class RakutenTvMovieMapper implements IMovieRepository {
 	movieService: HttpRakutenTvService;
 	constructor(movieService: HttpRakutenTvService) {
 		this.movieService = movieService;
+	}
+	async getMovieStream(args: GetMovieStreamInputDTO): Promise<GetMovieStreamOutputDTO> {
+		const response = await this.movieService.getMovieStreamById(args);
+		if (!response.data.stream_infos || !response.data.stream_infos[0])
+			return {
+				url: ""
+			}
+	
+		return {
+			url: response.data.stream_infos[0].url
+		}
 	}
 	async getMovieList(args: GetMovieListInputDTO): Promise<GetMovieListOutputDTO> {
 		const response = await this.movieService.getMovieList(args);

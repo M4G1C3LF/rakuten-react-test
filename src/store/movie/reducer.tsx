@@ -4,7 +4,11 @@ import {
   GET_MOVIE_BY_ID_FAIL,
   GET_MOVIE_LIST,
   GET_MOVIE_LIST_SUCCESS,
-  GET_MOVIE_LIST_FAIL
+  GET_MOVIE_LIST_FAIL,
+  GET_MOVIE_STREAM,
+  GET_MOVIE_STREAM_SUCCESS,
+  GET_MOVIE_STREAM_FAIL,
+
 } from "./actionTypes";
 
 const INIT_STATE = {
@@ -14,6 +18,9 @@ const INIT_STATE = {
   movieLists: [[]],
   isLoadingMovieList: false,
   movieListError: null,
+  movieStreamUrl: null,
+  isLoadingMovieStream: false,
+  movieStreamError: null,
 };
 
 const movie = (state = INIT_STATE, action : any) => {
@@ -72,6 +79,28 @@ const movie = (state = INIT_STATE, action : any) => {
         ...state,
         movieListError: action.payload,
         isLoadingMovieList: false,
+      };
+
+    case GET_MOVIE_STREAM:
+      return {
+        ...state,
+        isLoadingMovieStream: true,
+        movieStreamUrl: INIT_STATE.movieStreamUrl,
+      };
+      
+    case GET_MOVIE_STREAM_SUCCESS:
+          
+      return {
+        ...state,
+        movieStreamUrl: action.payload.stream,
+        isLoadingMovieStream: false,
+      };
+
+    case GET_MOVIE_STREAM_FAIL:
+      return {
+        ...state,
+        movieStreamUrl: INIT_STATE.movieStreamUrl,
+        isLoadingMovieStream: false,
       };
 
 		default:

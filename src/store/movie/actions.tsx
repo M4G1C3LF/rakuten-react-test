@@ -2,6 +2,8 @@ import { GetMovieByIdInputDTO } from "../../api/aggregates/movie/shared/dto/GetM
 import { GetMovieByIdOutputDTO } from "../../api/aggregates/movie/shared/dto/GetMovieByIdOutputDTO";
 import { GetMovieListInputDTO } from "../../api/aggregates/movie/shared/dto/GetMovieListInputDTO";
 import { GetMovieListOutputDTO } from "../../api/aggregates/movie/shared/dto/GetMovieListOutputDTO";
+import { GetMovieStreamInputDTO } from "../../api/aggregates/movie/shared/dto/GetMovieStreamInputDTO";
+import { GetMovieStreamOutputDTO } from "../../api/aggregates/movie/shared/dto/GetMovieStreamOutputDTO";
 
 import {
   GET_MOVIE_BY_ID,
@@ -10,6 +12,10 @@ import {
   GET_MOVIE_LIST,
   GET_MOVIE_LIST_SUCCESS,
   GET_MOVIE_LIST_FAIL,
+  GET_MOVIE_STREAM,
+  GET_MOVIE_STREAM_SUCCESS,
+  GET_MOVIE_STREAM_FAIL,
+
 } from "./actionTypes";
 
 
@@ -40,5 +46,20 @@ export const getMovieListSuccess = (result: GetMovieListOutputDTO) => ({
 
 export const getMovieListFail = (error : any) => ({
   type: GET_MOVIE_LIST_FAIL,
+  payload: error,
+});
+
+export const getMovieStream = (args: GetMovieStreamInputDTO) => ({
+  type: GET_MOVIE_STREAM,
+  payload: args,
+});
+
+export const getMovieStreamSuccess = (result: GetMovieStreamOutputDTO) => ({
+  type: GET_MOVIE_STREAM_SUCCESS,
+  payload: { stream: result },
+});
+
+export const getMovieStreamFail = (error : any) => ({
+  type: GET_MOVIE_STREAM_FAIL,
   payload: error,
 });

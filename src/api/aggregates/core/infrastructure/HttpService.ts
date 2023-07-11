@@ -10,7 +10,7 @@ type GetArgs = {
 
 type PostArgs = {
 	url: string,
-	token: string | undefined,
+	token?: string,
 	body: { [x:string]: any },
 	acceptAllHeaders?: boolean,
 }

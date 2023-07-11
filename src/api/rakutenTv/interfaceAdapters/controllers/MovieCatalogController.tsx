@@ -7,14 +7,18 @@ import { GetMovieByIdInputDTO } from "../../../aggregates/movie/shared/dto/GetMo
 import { GetMovieByIdOutputDTO } from "../../../aggregates/movie/shared/dto/GetMovieByIdOutputDTO";
 import { GetMovieListInputDTO } from "../../../aggregates/movie/shared/dto/GetMovieListInputDTO";
 import { GetMovieListOutputDTO } from "../../../aggregates/movie/shared/dto/GetMovieListOutputDTO";
+import { GetMovieStreamInputDTO } from "../../../aggregates/movie/shared/dto/GetMovieStreamInputDTO";
+import { GetMovieStreamOutputDTO } from "../../../aggregates/movie/shared/dto/GetMovieStreamOutputDTO";
 import { getMovieById } from "../../domain/useCases/getMovieCatalogById";
 import { getMovieList } from "../../domain/useCases/getMovieCatalogList";
+import { getMovieStream } from "../../domain/useCases/getMovieStream";
 
 export class MovieController extends GenericController<RepositoryCollection> implements IMovieRepository {
-	private _repositories: RepositoryCollection;
 	constructor(repositories: RepositoryCollection) {
 		super(repositories);
-		this._repositories = repositories;
+	}
+	getMovieStream(args: GetMovieStreamInputDTO): Promise<GetMovieStreamOutputDTO> {
+		return getMovieStream(this._movieRepository.getMovieStream, args);
 	}
 	getMovieList(args: GetMovieListInputDTO): Promise<GetMovieListOutputDTO> {
 		return getMovieList(this._movieRepository.getMovieList, args);

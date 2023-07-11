@@ -18,6 +18,7 @@ type AppProps = {
   movieDetail?: Movie;
   isLoadingMovieList?: boolean;
   isLoadingMovieDetail?: boolean;
+  isVideoPlayerOpen?: boolean;
 };
 
 const DEFAULT_LISTS: string[] = [ 
@@ -55,45 +56,11 @@ function App(props: AppProps) {
     
   }, []);
   
-  const movie : Movie = {
-    screenshotUrl:'https://images-0.rakuten.tv/storage/snapshot/shot/23a8e9e7-5818-4cd7-818a-cfa953c525d0-snapshot-1590662613.jpeg',
-    scores:{ imdb: 5.2, tmdb: 6 },
-    classification: 18,
-    title: 'Matrix',
-    description: 'Neo es el nick en la red que un aparentemente tranquilo trabajador de una empresa de software utiliza en sus pirateos informáticos varios. Su doble vida se ve alterada cuando unas misteriosas frases aparecen en su ordenador: "Matrix te posee". Neo entabla contacto telefónico con el que cree que es otro hacker (Morfeo) y unos misteriosos agentes comienzan a seguirle. Toda la concepción de la vida que tenía se irá al traste cuando Morfeo le explica que lo que realmente está viviendo no es más que un largo sueño apoyado en realidades virtuales y que no vive en el siglo que cree.',
-    releaseYear: 1999,
-    duration: 136,
-    genres: [
-      {
-        id: "1",
-        image: 'https://images-2.rakuten.tv/storage/list-image/brandable-photo/cdca468c-0072-4f3d-9250-807407ac72aa.png',
-        name: 'Action',
-        link: '#'
-
-      },
-      {
-        id: "2",
-        image: 'https://images-2.rakuten.tv/storage/list-image/brandable_photo/37b14f48-2c22-4ee7-a1b6-84b2f5bb5f9b-adventure-1591342700.png',
-        name: 'Adventure',
-        link: '#'
-      },
-      {
-        id: "3",
-        image: 'https://images-1.rakuten.tv/storage/list-image/brandable_photo/afbcfed0-7e7c-422b-9073-a4062bf882d9-science-fiction-1591342717.png',
-        name: 'Animation',
-        link: '#'
-      },
-    ],
-    languages:[ "Español", "Inglés" ],
-    subtitles:[ "Español", "Sin subtítulos" ],
-    videoQualities:[ "HD", "Full HD" ],
-    audioQualities:[ "2.0 (Stereo)", "5.1 (Dolby Surround)" ]
-  }
-
   return (
     <div className={`App`}>
-      {/* <VideoPlayer videoUrl='https://prod-magazine-pmd-fastly.cdn.rakuten.tv/8/a/b/8abef660a68f87488d9fe42e7c9ad835-mc-0-141-0-0_SD_TRAILER/8abef660a68f87488d9fe42e7c9ad835-mc-0-141-0-0_SD_TRAILER.mp4?nvb=1689068067&nva=1689068207&token=0c27c6da6912c94702e57' /> */}
-      <Layout >
+      
+      {props.isVideoPlayerOpen && <VideoPlayer videoUrl='https://prod-magazine-pmd-fastly.cdn.rakuten.tv/8/a/b/8abef660a68f87488d9fe42e7c9ad835-mc-0-141-0-0_SD_TRAILER/8abef660a68f87488d9fe42e7c9ad835-mc-0-141-0-0_SD_TRAILER.mp4?nvb=1689068067&nva=1689068207&token=0c27c6da6912c94702e57' /> }
+      <Layout className={`${props.isVideoPlayerOpen && 'd-none'}`}>
           <div>
             {props.movieLists && props.movieLists.map((movieList: any, index: number) => {
               if (!movieList) return null;
@@ -120,6 +87,7 @@ function App(props: AppProps) {
 
 const mapStateToProps = (state: any) => {
   return {
+      isVideoPlayerOpen: state.Ui.isVideoPlayerOpen,
       movieDetail: state.Movie.movieDetail,
       isLoadingMovieDetail: state.Movie.isLoadingMovieDetail,
       movieLists: state.Movie.movieLists,
