@@ -8,3 +8,20 @@
     height: 100vh;
     margin-bottom: -2rem;
 }
+
+.close-button {
+    left: 1rem;
+    top: 1rem;
+}
+.close-button:hover {
+    cursor: pointer;
+}
+
+.fullscreen-button {
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.fullscreen-button:hover {
+    cursor: pointer;
+}

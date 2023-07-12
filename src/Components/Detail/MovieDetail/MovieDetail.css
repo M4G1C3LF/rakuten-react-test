@@ -11,4 +11,7 @@
 
 .movie-detail-title {
     position: absolute;
+    background-color: #00000028;
+    border-radius: 0.5rem;
+    padding: 1rem;
 }

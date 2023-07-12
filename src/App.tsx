@@ -18,6 +18,7 @@ type AppProps = {
   getMovieById?: Function;
   getMovieStream?: Function;
   openVideoPlayer?: Function;
+  closeVideoPlayer?: Function;
   movieLists?: Movie[][];
   movieDetail?: Movie;
   isLoadingMovieList?: boolean;
@@ -69,7 +70,10 @@ function App(props: AppProps) {
   return (
     <div className={`App`}>
       
-      {props.isVideoPlayerOpen && props.movieStreamUrl &&<VideoPlayer videoUrl={`${props.movieStreamUrl}`} /> }
+      {props.isVideoPlayerOpen && props.movieStreamUrl &&<VideoPlayer 
+        videoUrl={`${props.movieStreamUrl}`} 
+        closeVideoPlayer={props.closeVideoPlayer}
+      />}
       <Layout className={`${props.isVideoPlayerOpen && 'd-none'}`}>
           <div>
             {props.movieLists && props.movieLists.map((movieList: any, index: number) => {
@@ -117,6 +121,7 @@ const mapDispatchToProps = (dispatch: any) => {
       getMovieById: (args: GetMovieByIdInputDTO) => dispatch(getMovieById(args)),
       getMovieStream: (args: GetMovieStreamInputDTO) => dispatch(getMovieStream(args)),
       openVideoPlayer: () => dispatch(openVideoPlayer()),
+      closeVideoPlayer: () => dispatch(closeVideoPlayer()),
   };
 }
 

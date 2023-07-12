@@ -27,7 +27,7 @@ export default (props: MovieDetailProps) => {
             <div className="movie-detail-title m-3">
                 <div>
                     <span>{movie.genres?.map(genre => genre.name).join("  ·  ")}</span>
-                    <h1 className='mt-0'>{movie.title}</h1>
+                    <h1 className='m-0'>{movie.title}</h1>
                 </div>
                 
             </div>
