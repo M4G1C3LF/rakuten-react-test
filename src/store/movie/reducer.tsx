@@ -56,7 +56,7 @@ const movie = (state = INIT_STATE, action : any) => {
       
     case GET_MOVIE_LIST_SUCCESS:
       let newMovieLists;
-      const movieListIndex = state.movieLists.findIndex((movieList : any) => movieList === action.payload.movieList);
+      const movieListIndex = state.movieLists.findIndex((movieList : any) => movieList.title === action.payload.movieList.title);
       if (movieListIndex !== -1) {
         newMovieLists = [...state.movieLists];
         newMovieLists[movieListIndex] = action.payload.movieList;

@@ -57,11 +57,7 @@ function App(props: AppProps) {
   useEffect(() => {
     if (props.isLoadingMovieList) return;
     DEFAULT_LISTS.forEach(id => {
-      const input: GetMovieListInputDTO = {
-        data: {
-          id: id
-        }
-      }
+      const input: GetMovieListInputDTO = { data: {id} }
       props.getMovieList && props.getMovieList(input);
     })
     
